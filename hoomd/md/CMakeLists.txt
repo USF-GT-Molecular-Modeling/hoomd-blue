@@ -38,7 +38,8 @@ set(_md_sources module-md.cc
                    NeighborListStencil.cc
                    NeighborListTree.cc
                    OPLSDihedralForceCompute.cc
-                   PPPMForceCompute.cc
+		   PCNDAngleForceCompute.cc
+		   PPPMForceCompute.cc
                    TableAngleForceCompute.cc
                    TableDihedralForceCompute.cc
                    TwoStepBD.cc
@@ -148,6 +149,9 @@ set(_md_headers ActiveForceComputeGPU.h
                 NeighborListTree.h
                 OPLSDihedralForceComputeGPU.h
                 OPLSDihedralForceCompute.h
+		PCNDAngleForceCompute.h
+		PCNDAngleForceComputeGPU.h
+		PCNDAngleForceGPU.cuh
                 PotentialBondGPU.h
                 PotentialBondGPU.cuh
                 PotentialBond.h
@@ -222,7 +226,8 @@ list(APPEND _md_sources ActiveForceComputeGPU.cc
                            NeighborListGPUStencil.cc
                            NeighborListGPUTree.cc
                            OPLSDihedralForceComputeGPU.cc
-                           PPPMForceComputeGPU.cc
+			   PCNDAngleForceComputeGPU.cc
+			   PPPMForceComputeGPU.cc
                            TableAngleForceComputeGPU.cc
                            TableDihedralForceComputeGPU.cc
                            TwoStepBDGPU.cc
@@ -257,7 +262,8 @@ set(_md_cu_sources ActiveForceComputeGPU.cu
                       NeighborListGPUStencil.cu
                       NeighborListGPUTree.cu
                       OPLSDihedralForceGPU.cu
-                      PPPMForceComputeGPU.cu
+		      PCNDAngleForceGPU.cu
+		      PPPMForceComputeGPU.cu
                       TableAngleForceGPU.cu
                       TableDihedralForceGPU.cu
                       TwoStepBDGPU.cu
