@@ -146,6 +146,7 @@ class CosineSquared(Angle):
                                TypeParameterDict(t0=float, k=float, len_keys=1))
         self._add_typeparam(params)
 
+        
 class PCND(Angle):
     r"""Protracted colored noise dynamics.
     
@@ -183,6 +184,8 @@ class PCND(Angle):
         params = TypeParameter('params', 'angle_types',
                                TypeParameterDict(Xi=float, Tau=float, len_keys=1))
         self._add_typeparam(params)
+        
+        
 class Table(Angle):
     """Tabulated bond force.
 
