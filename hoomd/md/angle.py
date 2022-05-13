@@ -146,7 +146,43 @@ class CosineSquared(Angle):
                                TypeParameterDict(t0=float, k=float, len_keys=1))
         self._add_typeparam(params)
 
+class PCND(Angle):
+    r"""Protracted colored noise dynamics.
+    
+    :py:class:`PCND` specifies a correlated stochastic force acting on the central particle of 
+    every triplet of particles directed along the backbone of a polymer chain. The magnitude of 
+    the time-correlated noise \epsilon (t) is obtained via the following equation.
+    
+    .. math::
+    
+       \frac{d\epsilon (t)}{dt} = \frac{\xi \sqrt{\tau} \eta (t) - \epsilon(t)}{\tau}
+       
+    where :math:`\xi` is the root mean square magnitude of the forces, :math:`\tau` is the
+    correlation time, and :math:`\eta (t)` is white noise which is uncorrelated in time.
+    
+    Attributes:
+        params (TypeParameter[``angle type``, dict]):
+            The parameter of the PCND bonds for each particle type.
+            The dictionary has the following keys:
+            
+            * ``Xi`` (`float`, **required**) - RMS force magnitude :math:`\Xi`
+            
+            * ``Tau`` (`float`, **required**) - correlation time :math:`\tau`
+              :math:`[\mathrm{time}]`
+              
+    Example::
+    
+        PCND = angle.PCND()
+        PCND.params['polymer'] = dict(Xi=0.1, Tau=1000.0)
+    """
 
+    _cpp_class_name = 'PCNDAngleForceCompute'
+
+    def __init__(self):
+        super().__init__()
+        params = TypeParameter('params', 'angle_types',
+                               TypeParameterDict(Xi=float, Tau=float, len_keys=1))
+        self._add_typeparam(params)
 class Table(Angle):
     """Tabulated bond force.
 
